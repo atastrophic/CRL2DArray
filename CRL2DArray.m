@@ -26,7 +26,7 @@
         for (int i = 0; i < x; i++) {
             NSMutableArray *innerArray = [NSMutableArray array];
             for (int j = 0; j < y; j++) {
-                [innerArray addObject:@""];
+                [innerArray addObject:kCRL2DArrayEmptyKey];
             }
             [self.outerArray addObject:innerArray];
         }
@@ -40,7 +40,7 @@
         NSMutableArray *array = [outerArray objectAtIndex:x];
         if (y < capacity) {
             if (data == nil)
-                [array replaceObjectAtIndex:y withObject:@""];
+                [array replaceObjectAtIndex:y withObject:kCRL2DArrayEmptyKey];
             else
                 [array replaceObjectAtIndex:y withObject:data];
             return YES;
@@ -71,9 +71,5 @@
 {
     [self.outerArray removeAllObjects];
 }
-- (void)dealloc
-{
-    [outerArray release];
-    [super dealloc];
-}
+
 @end
